@@ -8,30 +8,27 @@
 
 	<select id="getTableColumn" resultMap="result">
 		SELECT
-		COLUMN_NAME
-		columnName,
+		COLUMN_NAME columnName,
 		COLUMN_TYPE columnType,
 		DATA_TYPE dataType,
 		CHARACTER_MAXIMUM_LENGTH characterMaximumLength,
-		IS_NULLABLE
-		isNullable,
+		COLUMN_KEY columnKey,
+		IS_NULLABLE isNullable,
 		COLUMN_DEFAULT columnDefault,
-		COLUMN_COMMENT
-		columnComment
+		COLUMN_COMMENT columnComment
 		FROM
 		INFORMATION_SCHEMA.COLUMNS
 		WHERE
-		table_schema = #{dataSourceName}
-		AND table_name = #{tableName}
+		table_schema = #{dataSourceName} AND table_name = #{tableName}
 	</select>
 
 	<select id="getAllTableColumn" resultMap="result">
 		SELECT
-		COLUMN_NAME
-		columnName,
+		COLUMN_NAME columnName,
 		COLUMN_TYPE columnType,
 		DATA_TYPE dataType,
 		CHARACTER_MAXIMUM_LENGTH characterMaximumLength,
+		COLUMN_KEY columnKey,
 		IS_NULLABLE isNullable,
 		COLUMN_DEFAULT columnDefault,
 		COLUMN_COMMENT columnComment,
@@ -39,8 +36,7 @@
 		FROM
 		INFORMATION_SCHEMA.COLUMNS
 		WHERE
-		table_schema =
-		#{dataSourceName}
+		table_schema = #{dataSourceName}
 	</select>
 
 	<select id="getTabComment" resultType="String">

@@ -17,6 +17,8 @@ public class TableColumn {
 
 	private String characterMaximumLength;// 长度
 
+	private String columnKey;// 主键
+
 	private String isNullable;// 是否为空
 
 	private String columnDefault;// 默认值
@@ -57,8 +59,16 @@ public class TableColumn {
 		this.characterMaximumLength = characterMaximumLength;
 	}
 
+	public String getColumnKey() {
+		return columnKey.equals("PRI") ? "YES" : "";
+	}
+
+	public void setColumnKey(String columnKey) {
+		this.columnKey = columnKey;
+	}
+
 	public String getIsNullable() {
-		return isNullable;
+		return isNullable.equals("NO") ? "" : "YES";
 	}
 
 	public void setIsNullable(String isNullable) {
